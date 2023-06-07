@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>User has selected <span id="rate"></span></h1>
+    <script>
+        window.onload = () => {
+            const rate = document.getElementById("rate");
+            const url = new URL(window.location.href);
+            const searchParams = new URLSearchParams(url.search);
+            const rateField = searchParams.get('rateField');
+
+            rate.innerHTML = rateField;
+        }
+    </script>
+</body>
+
+</html>

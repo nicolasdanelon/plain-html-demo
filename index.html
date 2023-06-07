@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vite App</title>
+</head>
+
+<body style="height: 800px; background: url(dg0.jpg) center center no-repeat;">
+  <div class="wrapper">
+    <div class="modal">
+      <div class="modal-header">
+        <div class="modal-header-close">
+          &times;
+        </div>
+      </div>
+      <section class="content">
+        <div class="modal-title">
+          <h1>How did we do?</h1>
+        </div>
+        <div class="modal-text">
+          <p>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis ab, est maxime iste totam libero?
+            Impedit
+          </p>
+        </div>
+        <div class="modal-rating">
+          <label for="one">
+            <input type="button" id="one" value="1" onclick="setRate(this)" class="rate">
+          </label>
+          <label for="two">
+            <input type="button" id="two" value="2" onclick="setRate(this)" class="rate">
+          </label>
+          <label for="three">
+            <input type="button" id="three" value="3" onclick="setRate(this)" class="rate">
+          </label>
+          <label for="four">
+            <input type="button" id="four" value="4" onclick="setRate(this)" class="rate">
+          </label>
+          <label for="five">
+            <input type="button" id="one" value="5" onclick="setRate(this)" class="rate">
+          </label>
+        </div>
+        <div class="modal-action">
+          <form id="rateForm" action="success.html" method="get" onsubmit="return submitForm(event)">
+            <input type="hidden" value="" name="rateField" id="rateField">
+            <button type="submit" onmouseover="console.log()">submit</button>
+          </form>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div id="app"></div>
+  <script type="module" src="main.js"></script>
+  <script>
+    function removeClass() {
+      const inputs = document.getElementsByClassName('rate');
+      Object.values(inputs).map(input => {
+        input.className = "rate"
+      })
+    }
+    function setRate(input) {
+      removeClass();
+
+      input.className = input.className + " selected"
+      document.getElementById('rateField').value = input.value
+    }
+    function submitForm(e) {
+      e.preventDefault();
+      const v = document.getElementById('rateField');
+
+      if (v.value == "") {
+        alert('select ratting!');
+      } else {
+        document.getElementById('rateForm').submit();
+      }
+    }
+  </script>
+</body>
+
+</html>
